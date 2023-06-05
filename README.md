@@ -1,7 +1,7 @@
 # R-SI-balance-score Pipeline
 This pipeline calculates the R/SI balance score based on two gene expression maps (Figure A): Resistance(R)/Tolerance(T) (Cohn, O. et al., 2022) and MetS/Systemic Inflammation(SI) (Frishberg, A. et al., 2021).
 ## Pipeline Overview
-The pipeline, illustrated in Figure B, comprises several methods implemented in 'states_pipeline.py'. It enables the calculation of the full R/SI balance score by integrating the R/T and MetS/SI gene expression maps. To obtain the complete pipeline results from the input matrix, use the 'full_R_SI_score_pipeline(expression_df, control_individuals)' method. 
+The pipeline, illustrated in Figure B, comprises several methods implemented in ***'states_pipeline.py'***. It enables the calculation of the full R/SI balance score by integrating the R/T and MetS/SI gene expression maps. To obtain the complete pipeline results from the input matrix, use the ***'full_R_SI_score_pipeline(expression_df, control_individuals)'*** method. 
 The input is a gene expression matrix with individuals as columns and genes as the index, and a list of columns representing control individuals.
 
 Note: It is also possible to calculate the state for any other gene map, as long as the index represents genes and the columns represent x and y positions. This allows you to analyze additional gene maps of interest. Please refer to the running example file to see how to perform this calculation.
