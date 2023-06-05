@@ -11,7 +11,8 @@ Note: It is also possible to calculate the state for any other gene map, as long
 - ***resistance_tolerance_map.csv***: Gene expression map for resistance/tolerance.
 - ***MetS_systemic_inflammation_map.csv***: Gene expression map for MetS/systemic inflammation
 ## Usage
-Make sure 'resistance_tolerance_map.csv' and 'MetS_systemic_inflammation_map.csv' files in the project folder
+Make sure ***'resistance_tolerance_map.csv'*** and ***'MetS_systemic_inflammation_map.csv'*** files in the project folder
+
 Example code to run the pipeline in python:
 ```python 
 from states_pipeline import full_R_SI_score_pipeline
