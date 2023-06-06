@@ -31,4 +31,5 @@ results = full_R_SI_score_pipeline(expression_df, control_individuals)
  
 
 
-![pipeline](https://github.com/rachelbl2/R-SI-balance-score/assets/81696220/8bfc7aa8-cf4b-49eb-b210-9675fb86d2d4)
+
+![pipeline](https://github.com/rachelbl2/R-SI-balance-score/assets/81696220/4461b7d6-71ab-4614-b4d4-912ba1c7763b)
