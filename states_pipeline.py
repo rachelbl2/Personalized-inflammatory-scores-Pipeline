@@ -120,7 +120,7 @@ def R_SI_balance_score(full_states_table: pd.DataFrame) -> pd.DataFrame:
     full_states_table[f'R/SI balance score'] = full_states_table.apply(lambda row: row['R state'] - row['SI state'],axis=1) #use only after the normalization of the states (norm_all_states)
     return full_states_table
 
-def full_R_SI_score_pipeline(expression_df,control_individuals):
+def full_R_SI_score_pipeline(expression_df: pd.DataFrame,control_individuals: list)-> pd.DataFrame:
     '''
     runs the entire pipline from gene expression matrix to full states table with R/SI balance score column
     :param expression_df: gene expression table in which the columns are individuals and the index are genes
