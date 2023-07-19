@@ -1,4 +1,4 @@
-#Personalized inflammatory scores Pipeline
+# Personalized inflammatory scores Pipeline
 This pipeline provides four personalized inflammatory scores: antimicrobial resistance (R), Disease Tolerance (T), Metabolic syndrome (MetS) and Systemic Inflammation (SI). The calculation of personalized SI/MetS states are based on the MetS/SI map (Frishberg, A. et al., 2021), whereas the calculation of the R/T states are based on the R/T map (Cohn, O. et al., 2022). The output also includes the personal balance between R and SI (R/SI balance score). 
 ##Pipeline Overview
 The pipeline, illustrated in Figure B, comprises several methods implemented in 'states_pipeline.py'. It enables the calculation of the four inflammatory states (R, T, SI, MetS and SI) as well as the R/SI balance score, by integrating the input R/T and MetS/SI gene expression maps. To obtain the complete pipeline results from the input matrix, use the 'full_inflammation_scores_pipeline (expression_df, control_individuals)' method. The input is a gene expression matrix with individuals as columns and genes as the index, and a list of columns representing control individuals.
