@@ -13,7 +13,7 @@ The control individuals are used for standardization of the states and facilitat
 
 •	***MetS_systemic_inflammation_map.csv***: Gene expression map for MetS/systemic inflammation
 
-##Usage
+## Usage
 Make sure ***'resistance_tolerance_map.csv'*** and ***'MetS_systemic_inflammation_map.csv'*** files in the project folder
 Example code to run the pipeline in python:
 ```python 
