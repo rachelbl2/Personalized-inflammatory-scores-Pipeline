@@ -35,4 +35,5 @@ The ***full_inflammation_scores_pipeline*** function returns a data frame with t
 1.	Cohn, O. et al. Distinct gene programs underpinning disease tolerance and resistance in influenza virus infection. Cell Syst 13, 1002-1015.e9 (2022).
 2.	Frishberg, A. et al. An integrative model of cardiometabolic traits identifies two types of metabolic syndrome. eLife 10, e61710 (2021).
  
-![pipeline v2](https://github.com/rachelbl2/Personalized-inflammatory-scores-Pipeline/assets/81696220/9d768ccb-b69f-49a0-83b3-fd444c3ac74f)
+
+![pipeline v2](https://github.com/rachelbl2/Personalized-inflammatory-scores-Pipeline/assets/81696220/44467dd1-b63e-445e-877e-37507c86a53a)
