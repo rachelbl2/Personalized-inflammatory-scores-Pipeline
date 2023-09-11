@@ -4,7 +4,7 @@ This pipeline provides four personalized inflammatory states: antimicrobial resi
 The pipeline, illustrated in Figures A,B, is implemented in states_pipeline.py. The input to the full_inflammation_scores_pipeline(expression_df, control_individuals) method is (i) a gene expression matrix with individuals as columns and human gene symbols as the index, (ii) a list of columns representing control individuals in the gene expression matrix.
 In addition to these inputs, the method utilizes the following files, which should be placed in the code folder: (i)The R/T gene weights, (ii) The MetS/SI gene weights. 
 The method provides the following output: The four inflammatory states (R, T, MetS, and SI) and their p-values, as well as the R/SI-balance score, for each individual (see details for the calculations in Brandes et al., 2023). 
-Please take into account that the gene expression matrix must use human gene symbols as the index. If your data is in a different gene identifier format, it's important to convert them to human gene symbols before utilizing the pipeline.
+Please take into account that the gene expression matrix must use human gene symbols as the index. If your data is in a different gene identifier format, it's important to convert them to human gene symbols before utilizing the pipeline. In this pipeline, we refer to the gene weights for R and T as an ’R/T map’. Similarly, we refer to the gene weights for MetS and SI and a ‘MetS/SI map’.  
 
 The control individuals are used for standardization of the states and facilitating comparisons between the states derived from the MetS/SI map and those derived from the R/T map, thus enabling the calculation of the R/SI-balance score. Additionally, this allows the comparison between different cohorts. If the dataset does not include control individuals, it is possible to use all individuals in the cohort for the standardization step (i.e., the input list of control individuals will contain all individuals in the cohort).
 
@@ -16,9 +16,9 @@ Note: The “gene weights” are the positions of genes in the MetS/SI and R/T g
 
 •	***running_example.ipynb***: Jupyter Notebook file demonstrating the usage of the pipeline with a running example.
 
-•	***resistance_tolerance_map.csv***: A list of gene weights for R and T.
+•	***resistance_tolerance_map.csv***: A list of gene weights for R and T (i.e., the R/T map).
 
-•	***MetS_systemic_inflammation_map.csv***: A list of gene weights for MetS and SI.
+•	***MetS_systemic_inflammation_map.csv***: A list of gene weights for MetS and SI (i.e., the MetS/SI map).
 
 ## Usage
 Make sure ***'resistance_tolerance_map.csv'*** and ***'MetS_systemic_inflammation_map.csv'*** files in the project folder.
