@@ -3,15 +3,16 @@ from statsmodels import api as sm
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 
-def expression_preproccesing(expression_df: pd.DataFrame,control_individuals:list):
+def expression_preproccesing(expression_df: pd.DataFrame,control_individuals:list,log_transform = True,log_const = 0.01):
     '''
-    :param full_data: full expression data set. index - genes, columns - individuals
-    :param control_individuals: list of columns used for reference data
+    :param expression_df: gene expression data frame. index - genes, columns - individual's id
+    :param control_individuals: list of controls individuals (subset of columns) - reference data
+    :param log_transform: whether to log transform the data
     :return: the normalized expression matrix
     '''
-    expression_df = np.log2(expression_df+1)
+    if log_transform:
+        expression_df = np.log2(expression_df+log_const)
     return normalize_data(expression_df[control_individuals],expression_df) #normalize based on contol individuals
-
 def normalize_data(ref_data:pd.DataFrame, data:pd.DataFrame)->pd.DataFrame:
     '''
     noramalize df based on reference data
@@ -39,7 +40,7 @@ def calculate_state(df:pd.DataFrame,x:str,y:str,individual:str,const: bool = Tru
     :param y: column name for map y positions
     :param individual: column name of the individual's gene expression
     :param const: if True adds const to the regression
-    '''
+    '''z
     if const:
         X = sm.add_constant(df[[x, y]])
     else:
@@ -120,18 +121,19 @@ def R_SI_balance_score(full_states_table: pd.DataFrame) -> pd.DataFrame:
     full_states_table[f'R/SI balance score'] = full_states_table.apply(lambda row: row['R state'] - row['SI state'],axis=1) #use only after the normalization of the states (norm_all_states)
     return full_states_table
 
-def full_inflammation_scores_pipeline(expression_df: pd.DataFrame,control_individuals: list,preprocessing:bool = True)-> pd.DataFrame:
+def full_R_SI_score_pipeline(expression_df,control_individuals,preproccesing = True,log_transform = True,log_const = 0.01):
     '''
-    runs the entire pipline from gene expression matrix to full states table The T/R, MetS SI states and the R/SI balance score
+    runs the entire pipline from gene expression matrix to full states table with T/R, MetS SI states and the R/SI balance score
     :param expression_df: gene expression table in which the columns are individuals and the index are genes
     :param control_individuals: list of controls individuals (subset of columns)
-    '''
-
+    :param preproccesing: whether to preform preprocessin to the expression matrix
+    :param log_transform: whether to log transform the data before standardization
+    '''g
     T_R_map = pd.read_csv('resistance_tolerance_map.csv',index_col=0)
     mets_SI_map = pd.read_csv('MetS_systemic_inflammation_map.csv',index_col=0)
-    if preprocessing:
-        expression_df = expression_preproccesing(expression_df,control_individuals)
-    #calculation the T/R and MetS SI scores    
+    if preproccesing:
+        expression_df = expression_preproccesing(expression_df,control_individuals,log_transform=log_transform,log_const = log_const)
+    #calculation the T/R and MetS SI scores
     r_t_states = states_df(T_R_map,'T','R',expression_df)
     mets_si_states = states_df(mets_SI_map,'MetS','SI',expression_df)
     full_states_table = r_t_states.join(mets_si_states)
