@@ -13,6 +13,8 @@ def expression_preproccesing(expression_df: pd.DataFrame,control_individuals:lis
     if log_transform:
         expression_df = np.log2(expression_df+log_const)
     return normalize_data(expression_df[control_individuals],expression_df) #normalize based on contol individuals
+
+
 def normalize_data(ref_data:pd.DataFrame, data:pd.DataFrame)->pd.DataFrame:
     '''
     noramalize df based on reference data
