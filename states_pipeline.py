@@ -67,7 +67,7 @@ def center_map(map:pd.DataFrame,x:str,y:str)->pd.DataFrame:
 def states_df(map:pd.DataFrame,x:str,y:str,df:pd.DataFrame,const:bool = True,center :bool= True)->pd.DataFrame:
     '''
     calculates state for every individual in df based on map with (x,y) axis.
-    :param map: gene space positions (T/R  or MetS/SI)
+    :param map: gene space positions (T/R, MetS/SI   oor other gene map)
     :param df: normalized data frame in which the columns are individuals and the index are genes
     :param const: if True adds const to the regression
     :param center: if True map coordinates are centered around 0
@@ -75,15 +75,20 @@ def states_df(map:pd.DataFrame,x:str,y:str,df:pd.DataFrame,const:bool = True,cen
     '''
     if center:
         map = center_map(map,x,y)
-    states_df = pd.DataFrame(columns=['individual',f'{x} state',f'{y} state',f'pval {x}',f'pval {y}'])
     individuals = df.columns
     df = df.join(map).dropna()
+    states_list = []
     for individual in individuals:
+        const_var = None
         res, res_x, res_y= calculate_state(df,x,y,individual,const)
         pvals = res.pvalues
-        states_df = states_df.append({'individual':individual, f'{x} state': res_x, f'{y} state': res_y,
-                                      f'pval {x}':pvals[0],f'pval {y}':pvals[1]},ignore_index=True)
+        r2 = res.rsquared
+        if const:
+            const_var = res.params['const']
+        states_list.append({'individual':individual, f'{x} state': res_x, f'{y} state': res_y,
+                            f'pval {x}':pvals[0],f'pval {y}':pvals[1] , f'const {x} {y} map':const_var,f'r squared {x} {y} map':r2})
 
+    states_df = pd.concat([pd.DataFrame(states_list)],ignore_index=True)
     states_df = states_df.set_index('individual')
     return states_df
 
