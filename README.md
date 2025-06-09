@@ -38,7 +38,8 @@ The ***full_inflammation_scores_pipeline*** function returns a data frame with t
 ## References
 1.	Cohn, O. et al. Distinct gene programs underpinning disease tolerance and resistance in influenza virus infection. Cell Syst 13, 1002-1015.e9 (2022).
 2.	Frishberg, A. et al. An integrative model of cardiometabolic traits identifies two types of metabolic syndrome. eLife 10, e61710 (2021).
-3.	Rachel Brandes-Leibovitz, et al. “Sepsis Pathogenesis and Outcome Are Shaped by the Balance between the Transcriptional States of Systemic Inflammation and Antimicrobial Response.” Cell Reports Medicine, 2024, https://doi.org/10.1016/j.xcrm.2024.101829. 
+3.	Rachel Brandes-Leibovitz, et al. “Sepsis Pathogenesis and Outcome Are Shaped by the Balance between the Transcriptional States of Systemic Inflammation and Antimicrobial Response.” Cell Reports Medicine, 2024
+   
 ![image](https://github.com/user-attachments/assets/d4e010ad-de8f-4599-a266-68a2cc564f01)
 
  
