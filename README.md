@@ -40,7 +40,7 @@ The ***full_inflammation_scores_pipeline*** function returns a data frame with t
 2.	Frishberg, A. et al. An integrative model of cardiometabolic traits identifies two types of metabolic syndrome. eLife 10, e61710 (2021).
 3.	Rachel Brandes-Leibovitz, et al. “Sepsis Pathogenesis and Outcome Are Shaped by the Balance between the Transcriptional States of Systemic Inflammation and Antimicrobial Response.” Cell Reports Medicine, 2024
    
-![image](https://github.com/user-attachments/assets/d4e010ad-de8f-4599-a266-68a2cc564f01)
+
 
  
 
