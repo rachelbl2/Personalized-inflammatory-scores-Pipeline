@@ -1,5 +1,5 @@
 # Personalized inflammatory scores Pipeline
-This pipeline provides four personalized inflammatory states: antimicrobial resistance (R), Disease Tolerance (T), Metabolic syndrome (MetS) and Systemic Inflammation (SI). The calculation of personalized MetS/SI states are based on the MetS/SI gene weights (Frishberg, A. et al., 2021), whereas the calculation of the R/T states are based on the R/T gene weights (Cohn, O. et al., 2022). The output also includes the personal balance between R and SI (the “R/SI-balance score”, Brandes et al. 2023).
+This pipeline provides four personalized inflammatory states: antimicrobial resistance (R), Disease Tolerance (T), Metabolic syndrome (MetS) and Systemic Inflammation (SI). The calculation of personalized MetS/SI states are based on the MetS/SI gene weights (Frishberg, A. et al., 2021), whereas the calculation of the R/T states are based on the R/T gene weights (Cohn, O. et al., 2022). The output also includes the personal balance between R and SI (the “R/SI-balance score”, Brandes et al. 2024).
 ## Pipeline Overview
 The pipeline, illustrated in Figures A,B, is implemented in states_pipeline.py. The input to the full_inflammation_scores_pipeline(expression_df, control_individuals) method is (i) a gene expression matrix with individuals as columns and human gene symbols as the index, (ii) a list of columns representing control individuals in the gene expression matrix.
 In addition to these inputs, the method utilizes the following files, which should be placed in the code folder: (i)The R/T gene weights, (ii) The MetS/SI gene weights. 
@@ -38,7 +38,9 @@ The ***full_inflammation_scores_pipeline*** function returns a data frame with t
 ## References
 1.	Cohn, O. et al. Distinct gene programs underpinning disease tolerance and resistance in influenza virus infection. Cell Syst 13, 1002-1015.e9 (2022).
 2.	Frishberg, A. et al. An integrative model of cardiometabolic traits identifies two types of metabolic syndrome. eLife 10, e61710 (2021).
-3.	Brandes R. et al. Manuscript in revision.
+3.	Rachel Brandes-Leibovitz, et al. “Sepsis Pathogenesis and Outcome Are Shaped by the Balance between the Transcriptional States of Systemic Inflammation and Antimicrobial Response.” Cell Reports Medicine, 2024, https://doi.org/10.1016/j.xcrm.2024.101829. 
+![image](https://github.com/user-attachments/assets/d4e010ad-de8f-4599-a266-68a2cc564f01)
+
  
 
 ![pipeline v2](https://github.com/rachelbl2/Personalized-inflammatory-scores-Pipeline/assets/81696220/44467dd1-b63e-445e-877e-37507c86a53a)
