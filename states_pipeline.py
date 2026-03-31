@@ -42,7 +42,7 @@ def calculate_state(df:pd.DataFrame,x:str,y:str,individual:str,const: bool = Tru
     :param y: column name for map y positions
     :param individual: column name of the individual's gene expression
     :param const: if True adds const to the regression
-    '''z
+    '''
     if const:
         X = sm.add_constant(df[[x, y]])
     else:
@@ -135,7 +135,7 @@ def full_R_SI_score_pipeline(expression_df,control_individuals,preproccesing = T
     :param control_individuals: list of controls individuals (subset of columns)
     :param preproccesing: whether to preform preprocessin to the expression matrix
     :param log_transform: whether to log transform the data before standardization
-    '''g
+    '''
     T_R_map = pd.read_csv('resistance_tolerance_map.csv',index_col=0)
     mets_SI_map = pd.read_csv('MetS_systemic_inflammation_map.csv',index_col=0)
     if preproccesing:
